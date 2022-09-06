@@ -9,7 +9,7 @@ import UIKit
 import AlamofireImage
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    
+    //UI interface for table view 
     @IBOutlet weak var tableView: UITableView!
     
     var movies = [[String: Any]]()
@@ -35,10 +35,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                  
                  self.movies = dataDictionary["results"] as! [[String: Any]]
                  self.tableView.reloadData()
-
-                    // TODO: Get the array of movies
-                    // TODO: Store the movies in a property to use elsewhere
-                    // TODO: Reload your table view data
 
              }
         }
