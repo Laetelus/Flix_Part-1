@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var tableView: UITableView!
     
     var movies = [[String: Any]]()
+    //var movie: [String: Any]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +64,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         cell.posterView.af_setImage(withURL: posterURL!)
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        print("Loading screen...")
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPath(for: cell)!
+        let movie = movies[indexPath.row]
+        
+        let detailsViewController = segue.destination as! MoviesDetailViewController
+        detailsViewController.movie = movie
+        tableView.deselectRow(at: indexPath, animated: true)
+        
     }
 
 
